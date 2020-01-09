@@ -1,7 +1,8 @@
 import java.util.Arrays;
 
 /**
- * @author Nomis Write a method called swap(), which takes two arrays of int and
+ * @author Bastaff
+ * 		   Write a method called swap(), which takes two arrays of int and
  *         swap their contents if they have the same length. It shall return
  *         true if the contents are successfully swapped.
  */

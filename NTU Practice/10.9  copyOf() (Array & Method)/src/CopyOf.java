@@ -1,5 +1,5 @@
 /**
- * @author Nomis
+ * @author Bastaff
  *	Write a boolean method called copyOf(), which takes an int Array and returns a copy of the given array. 
  */
 import java.util.Arrays;
