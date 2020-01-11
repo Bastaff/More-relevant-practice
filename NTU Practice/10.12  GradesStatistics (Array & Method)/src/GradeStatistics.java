@@ -11,8 +11,9 @@ public class GradeStatistics {
 
 	public static void main(String[] args) {
 		readGrades();
-		System.out.println(Arrays.toString(grades));
-
+		print(grades);
+		
+		
 	}
 
 	public static void readGrades() {
@@ -38,6 +39,23 @@ public class GradeStatistics {
 			} while (!isValid); // when input is valid THEN add it to the Array
 			grades[count] = placeholder;
 		}
-
 	}
+
+	public static void print(int[] array) {
+		System.out.print("Values added: [");
+		for (int count = 0; count <= array.length - 1; ++count) {
+			if (count == 0) {
+				System.out.print(grades[count]);
+			} else {
+				System.out.print(", " + grades[count]);
+			}
+		}
+		System.out.print("]");
+	}
+	
+	public static double average(int[] array) {
+		
+		
+	}
+
 }
