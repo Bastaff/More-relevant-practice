@@ -12,8 +12,10 @@ public class GradeStatistics {
 	public static void main(String[] args) {
 		readGrades();
 		print(grades);
-		
-		
+		System.out.printf("\n%s%.2f", "The average is ", average(grades));
+		System.out.printf("\n%s%.2f", "The median is ", median(grades));
+		median(grades);
+		System.out.println(Arrays.toString(grades));
 	}
 
 	public static void readGrades() {
@@ -41,8 +43,11 @@ public class GradeStatistics {
 		}
 	}
 
-	public static void print(int[] array) { //this could be replaced by Arrays.toString but since it's practice we're doing it the old school way
-		System.out.print("Values added: [");
+	public static void print(int[] array) { // this could be replaced by
+											// Arrays.toString but since it's
+											// practice we're doing it the old
+											// school way
+		System.out.print("The grades are: [");
 		for (int count = 0; count <= array.length - 1; ++count) {
 			if (count == 0) {
 				System.out.print(grades[count]);
@@ -52,10 +57,29 @@ public class GradeStatistics {
 		}
 		System.out.print("]");
 	}
-	
+
 	public static double average(int[] array) {
-		
-		
+		double sum = 0;
+
+		for (int count = 0; count <= array.length - 1; ++count) {
+			sum += grades[count];
+		}
+		sum = sum / grades.length;
+		return sum;
 	}
 
+	public static double median(int[] array) {
+		double median = 0;
+		int valueBase; 
+		int j;
+		
+		for (int count = 0; count <= array.length - 1; ++count) {
+			valueBase = grades[count];
+				for ( j = count; j > 0 && grades[j - 1] > valueBase; j--) {
+					grades[j] = grades[j - 1];
+				}
+				grades[j] = valueBase;
+		}
+		return median;
+	}
 }
