@@ -41,7 +41,7 @@ public class GradeStatistics {
 		}
 	}
 
-	public static void print(int[] array) {
+	public static void print(int[] array) { //this could be replaced by Arrays.toString but since it's practice we're doing it the old school way
 		System.out.print("Values added: [");
 		for (int count = 0; count <= array.length - 1; ++count) {
 			if (count == 0) {
