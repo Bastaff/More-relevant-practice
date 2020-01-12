@@ -12,10 +12,13 @@ public class GradeStatistics {
 	public static void main(String[] args) {
 		readGrades();
 		print(grades);
-		System.out.printf("\n%s%.2f", "The average is ", average(grades));
-		System.out.printf("\n%s%.2f", "The median is ", median(grades));
-		median(grades);
-		System.out.println(Arrays.toString(grades));
+		System.out.printf("\n%s%.2f", "The average is: ", average(grades));
+		System.out.printf("\n%s%.2f", "The median is: ", median(grades));
+		System.out.printf("\n%s%d", "The minimum is: ", min(grades));
+		System.out.printf("\n%s%d", "The maximum is: ", max(grades));
+		System.out.printf("\n%s%.2f", "The standard deviation is: ",
+				stdDev(grades));
+
 	}
 
 	public static void readGrades() {
@@ -50,9 +53,9 @@ public class GradeStatistics {
 		System.out.print("The grades are: [");
 		for (int count = 0; count <= array.length - 1; ++count) {
 			if (count == 0) {
-				System.out.print(grades[count]);
+				System.out.print(array[count]);
 			} else {
-				System.out.print(", " + grades[count]);
+				System.out.print(", " + array[count]);
 			}
 		}
 		System.out.print("]");
@@ -62,24 +65,68 @@ public class GradeStatistics {
 		double sum = 0;
 
 		for (int count = 0; count <= array.length - 1; ++count) {
-			sum += grades[count];
+			sum += array[count];
 		}
-		sum = sum / grades.length;
+		sum = sum / array.length;
 		return sum;
 	}
 
 	public static double median(int[] array) {
 		double median = 0;
-		int valueBase; 
+		int middle = array.length / 2;
+		int valueBase;
 		int j;
-		
+
 		for (int count = 0; count <= array.length - 1; ++count) {
-			valueBase = grades[count];
-				for ( j = count; j > 0 && grades[j - 1] > valueBase; j--) {
-					grades[j] = grades[j - 1];
-				}
-				grades[j] = valueBase;
+			valueBase = array[count];
+			for (j = count; j > 0 && array[j - 1] > valueBase; j--) {
+				array[j] = array[j - 1];
+			}
+			array[j] = valueBase;
+		}
+		for (int count = 0; count <= array.length - 1; ++count) {
+			if (array.length % 2 != 0) {
+				median = array[middle];
+			} else {
+				median = (array[middle] + array[middle - 1]) / 2;
+			}
+
 		}
 		return median;
+	}
+
+	public static int max(int[] array) {
+		int max = array[0];
+
+		for (int count = 0; count <= array.length - 1; ++count) {
+			while (max < array[count]) {
+				max = array[count];
+			}
+		}
+
+		return max;
+	}
+
+	public static int min(int[] array) {
+		int min = array[0];
+
+		for (int count = 0; count <= array.length - 1; ++count) {
+			while (min > array[count]) {
+				min = array[count];
+			}
+		}
+
+		return min;
+	}
+
+	public static double stdDev(int[] array) {
+		double stdDev;
+		int sum = 0;
+
+		for (int count = 0; count <= array.length - 1; ++count) {
+			sum += array[count];
+		}
+		stdDev = sum / array.length;
+		return stdDev;
 	}
 }
