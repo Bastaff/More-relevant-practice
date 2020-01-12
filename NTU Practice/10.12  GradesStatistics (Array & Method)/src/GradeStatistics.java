@@ -61,7 +61,7 @@ public class GradeStatistics {
 		System.out.print("]");
 	}
 
-	public static double average(int[] array) {
+	public static double average(int[] array) { 
 		double sum = 0;
 
 		for (int count = 0; count <= array.length - 1; ++count) {
@@ -90,7 +90,6 @@ public class GradeStatistics {
 			} else {
 				median = (array[middle] + array[middle - 1]) / 2;
 			}
-
 		}
 		return median;
 	}
@@ -103,7 +102,6 @@ public class GradeStatistics {
 				max = array[count];
 			}
 		}
-
 		return max;
 	}
 
@@ -115,7 +113,6 @@ public class GradeStatistics {
 				min = array[count];
 			}
 		}
-
 		return min;
 	}
 
