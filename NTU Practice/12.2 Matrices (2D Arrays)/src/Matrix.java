@@ -34,4 +34,16 @@ public class Matrix {
 		}
 		return haveSame;
 	}
+	
+	public static boolean haveSameDimension(double[][] m, double[][] m2) {
+		boolean haveSame = false;
+		for(double[] row : m) {
+			for (double[] row2 : m2) {
+				if(row == row2) {
+					haveSame = true;
+				}
+			}
+		}
+		return haveSame;
+	}
 }
