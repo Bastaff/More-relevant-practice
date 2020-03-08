@@ -13,24 +13,40 @@ public class MyTime {
 		if (hour < 0 || hour > 23) {
 			throw new IllegalArgumentException("Not valid hour's value");
 		} else {
-		this.hour = hour;
+			this.hour = hour;
 		}
+
 		if (minute < 0 || minute > 59) {
 			throw new IllegalArgumentException("Not valid minute's value");
 		} else {
-		this.minute = minute;
+			this.minute = minute;
 		}
+
 		if (second < 0 || second > 59) {
-			throw new v;
+			throw new IllegalArgumentException("Not valid second's value");
 		} else {
-		this.second = second;
+			this.second = second;
 		}
 	}
 
 	public void setTime(int hour, int minute, int second) {
-		this.hour = hour;
-		this.minute = minute;
-		this.second = second;
+		if (hour < 0 || hour > 23) {
+			throw new IllegalArgumentException("Not valid hour's value");
+		} else {
+			this.hour = hour;
+		}
+
+		if (minute < 0 || minute > 59) {
+			throw new IllegalArgumentException("Not valid minute's value");
+		} else {
+			this.minute = minute;
+		}
+
+		if (second < 0 || second > 59) {
+			throw new IllegalArgumentException("Not valid second's value");
+		} else {
+			this.second = second;
+		}
 	}
 
 	public int getHour() {
@@ -49,7 +65,7 @@ public class MyTime {
 		if (hour < 0 || hour > 23) {
 			throw new IllegalArgumentException("Not valid hour's value");
 		} else {
-		this.hour = hour;
+			this.hour = hour;
 		}
 	}
 
@@ -57,20 +73,21 @@ public class MyTime {
 		if (minute < 0 || minute > 59) {
 			throw new IllegalArgumentException("Not valid minute's value");
 		} else {
-		this.minute = minute;
+			this.minute = minute;
 		}
 	}
 
 	public void setSecond(int second) {
-		if (second < 0 || second > 59) {
+		if (this.second < 0 || this.second > 59) {
 			throw new IllegalArgumentException("Not valid hour's value");
 		} else {
-		this.second = second;
+			this.second = second;
 		}
 	}
 
 	public String toString() {
-		return String.format("%2d:%2d:%2d", hour, minute, second);
+		return String.format("%2d:%2d:%2d", hour, minute, second).replace(' ',
+				'0');
 	}
 
 	public MyTime nextSecond() {
@@ -102,7 +119,7 @@ public class MyTime {
 		hour = 0;
 		return this;
 	}
-	
+
 	public MyTime previousSecond() {
 		try {
 			setTime(hour, minute, --second);
@@ -110,7 +127,7 @@ public class MyTime {
 		} catch (IllegalArgumentException e) {
 		}
 		second = 59;
-		return nextMinute();
+		return previousMinute();
 	}
 
 	public MyTime previousMinute() {
@@ -120,7 +137,7 @@ public class MyTime {
 		} catch (IllegalArgumentException e) {
 		}
 		minute = 59;
-		return nextHour();
+		return previousHour();
 	}
 
 	public MyTime previousHour() {
