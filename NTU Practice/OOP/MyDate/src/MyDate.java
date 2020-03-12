@@ -31,7 +31,7 @@ public class MyDate {
 	
 	
 	
-	public boolean isLeapYear(int year) {
+	public static boolean isLeapYear(int year) {
 		if (year % 4 != 0) {
 			return false;
 		} else if (year % 400 == 0) {
@@ -42,7 +42,7 @@ public class MyDate {
 			return true;
 	}
 
-	public boolean isValidDate(int year, int month, int day) {
+	public static boolean isValidDate(int year, int month, int day) {
 
 		if (year < MIN_YEAR || year > MAX_YEAR)
 			return false;
@@ -63,6 +63,21 @@ public class MyDate {
 			return (day <= 30);
 		return true;
 	}
+	
+	public static int getDayOfWeek(int year, int month, int day)
+    {
+        if (! isValidDate(year, month, day)) {
+            return -1;
+        }
+
+        int magicCenturyNumber = 6 - 2*((year / 100) % 4);
+        
+        int lastTwoDigitsOfYear = year % 100;
+        
+        int magicYearNumber = lastTwoDigitsOfYear / 4;
+        
+
+    }
 	
 	
 	
