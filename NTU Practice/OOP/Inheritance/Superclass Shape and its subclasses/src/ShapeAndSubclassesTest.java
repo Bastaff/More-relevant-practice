@@ -19,7 +19,12 @@ public class ShapeAndSubclassesTest {
 				red.isFilled());
 		System.out.println(rec.toString());
 		
+		// Creating a square side=2.0, color and fill are taken from Shape(red)
+		Square sq = new Square(2.0, red.getColor(), red.isFilled());
+		System.out.println(sq.toString());
 		
+		System.out.println(sq.getArea());
+		System.out.println(sq.getPerimeter());
 	}
 
 }

@@ -24,7 +24,7 @@ public class Rectangle extends Shape {
 		return width;
 	}
 
-	public void seWidth(double width) {
+	public void setWidth(double width) {
 		this.width = width;
 	}
 
@@ -43,7 +43,7 @@ public class Rectangle extends Shape {
 	public double getPerimeter() {
 		return 2 * getLength() + 2 * getWidth();
 	}
-
+	@Override
 	public String toString() {
 		return "Rectangle[" + super.toString() + ", width = " + getWidth()
 				+ ", length = " + getLength() + "]";
