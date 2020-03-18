@@ -1,27 +1,24 @@
+// re-design the Line class (called LineSub) as a subclass of class Point
 
-public class Line {
-	private Point begin;
-	private Point end;
+public class LineSub extends Point {
+	Point end;
 
-	public Line(Point begin, Point end) {
-		this.begin = begin;
-		this.end = end;
-	}
-
-	public Line(int beginX, int beginY, int endX, int endY) {
-		begin = new Point(beginX, beginY);
-		end = new Point(endX, endY);
+	public LineSub(int beginX, int beginY, int endX, int endY) {
+		super(beginX, beginY);
+		this.end = new Point(endX, endY);
 	}
 
 	public Point getBegin() {
-		return begin;
+		return this;
 	}
+
 	public Point getEnd() {
 		return end;
 	}
 
 	public void setBegin(Point begin) {
-		this.begin = begin;
+		setX(begin.getX());
+		setY(begin.getY());
 	}
 
 	public void setEnd(Point end) {
@@ -29,11 +26,11 @@ public class Line {
 	}
 
 	public int getBeginX() {
-		return begin.getX();
+		return getX();
 	}
 
 	public int getBeginY() {
-		return begin.getY();
+		return getY();
 	}
 
 	public int getEndX() {
@@ -45,15 +42,15 @@ public class Line {
 	}
 
 	public void setBeginX(int beginX) {
-		begin.setX(beginX);
+		setX(beginX);
 	}
 
 	public void setBeginY(int beginY) {
-		begin.setY(beginY);
+		setY(beginY);
 	}
 
 	public void setBeginXY(int beginX, int beginY) {
-		begin.setXY(beginX, beginY);
+		setXY(beginX, beginY);
 	}
 
 	public void setEndX(int endX) {
@@ -69,13 +66,13 @@ public class Line {
 	}
 
 	public int getLength() {
-		return (int) Math
-				.sqrt(begin.getX() * end.getX() + begin.getY() * end.getY());
+		return (int) Math.sqrt(getX() * end.getX() + getY() * end.getY());
 	}
 
 	public double getGradient() {
-		return Math.atan2(begin.getX(), begin.getY());
+		return Math.atan2(getX(), getY());
 	}
+
 	@Override
 	public String toString() {
 		return "Begin = " + getBegin() + "End = " + getEnd() + " Begin X,Y = "
