@@ -1,20 +1,20 @@
 
-public class Cylinder extends Circle {
-
+public class Cylinder {
+	private Circle base;
 	private double height;
 
 	public Cylinder() {
-		super();
+		base = new Circle();
 		height = 1.0;
 	}
 
 	public Cylinder(double height) {
-		super();
+		base = new Circle();
 		this.height = height;
 	}
 
 	public Cylinder(double radius, double height) {
-		super(radius);
+		base = new Circle(radius);
 		this.height = height;
 	}
 
@@ -28,18 +28,20 @@ public class Cylinder extends Circle {
 
 	public double getVolume() {
 		return Math.PI * Math.pow(base.getRadius(), 2) * height;
-
 	}
 
-	@Override
 	public double getArea() {
-		return Math.PI * getRadius() * height + 2 * super.getArea();
+		return 2 * Math.PI * base.getRadius() * height + 2 * base.getArea();
+	}
+
+	public double getRadius() {
+		return base.getRadius();
 	}
 
 	@Override
 	public String toString() {
-		return "Cylinder: subclass of " + super.toString() + " height="
-				+ height;
+		return "Cylinder:" + "DEFAULT VALUES: |RADIUS = " + base.getRadius()
+				+ "| HEIGHT = " + height;
 	}
 
 }
