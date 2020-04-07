@@ -122,19 +122,3 @@ mysql> SELECT r.veh_reg_no
 +------------+------------+------------+
 4 rows in set (0.00 sec)
 
-/*
-List the vehicles (registration number, brand and description) available for rental (not rented out) on '2012-01-10'
-*/
-mysql> SELECT v.veh_reg_no, v.brand, v.desc
-    -> FROM rental_records AS r
-    -> INNER JOIN vehicles AS v USING (veh_reg_no)
-    -> WHERE '2012-01-10' NOT BETWEEN r.start_date AND r.end_date;
-+------------+---------------------+--------------------------+
-| veh_reg_no | brand               | desc                     |
-+------------+---------------------+--------------------------+
-| SBA1111A   | NISSAN SUNNY 1.6L   | 4 Door Saloon, Automatic |
-| GA6666F    | OPEL COMBO 1.6L     | Van, Manual              |
-| SBA1111A   | NISSAN SUNNY 1.6L   | 4 Door Saloon, Automatic |
-| GA5555E    | NISSAN CABSTAR 3.0L | Lorry, Manual            |
-+------------+---------------------+--------------------------+
-4 rows in set (0.00 sec)

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="10.10  swap() (Array &amp; Method)/src"/>
+	<classpathentry kind="src" path="10.11  reverse() (Array &amp; Method)/src"/>
+	<classpathentry kind="src" path="10.12  GradesStatistics (Array &amp; Method)/src"/>
+	<classpathentry kind="src" path="10.6  contains (Array &amp; Method)/src"/>
+	<classpathentry kind="src" path="10.9  copyOf() (Array &amp; Method)/src"/>
+	<classpathentry kind="src" path="12.2 Matrices (2D Arrays)/src"/>
+	<classpathentry kind="src" path="Print Patterns (nested-loop)/src"/>
+	<classpathentry kind="output" path="10.10  swap() (Array &amp; Method)/bin"/>
+</classpath>
