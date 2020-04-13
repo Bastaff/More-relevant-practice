@@ -9,19 +9,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class Add extends HttpServlet {
+// Calling this servlet to return the square of values in Add.java
+public class CallingServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
-		int i = Integer.parseInt(req.getParameter("num1"));
-		int j = Integer.parseInt(req.getParameter("num2"));
 
-		int k = i + j;
+		res.setContentType("text/html");
 
-		req.setAttribute("k", k);
+		int k = (int) req.getAttribute("k");
 
-		RequestDispatcher rd = req.getRequestDispatcher("/sq");
-		rd.forward(req, res);
+		k = k * k;
+		
+		PrintWriter out = res.getWriter();
+		out.println("The square is " + k);
 
+		RequestDispatcher rd = req.getRequestDispatcher("/index.html");
+		rd.include(req, res);
 	}
-	
+
 }
