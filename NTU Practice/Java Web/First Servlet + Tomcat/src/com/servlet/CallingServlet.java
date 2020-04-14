@@ -5,24 +5,33 @@ import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 // Calling this servlet to return the square of values in Add.java
 public class CallingServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
 
-		res.setContentType("text/html");
+		int k = 0;
+		Cookie cookies[] = req.getCookies();
 
-		int k = (int) req.getAttribute("k");
+		for (Cookie c : cookies) {
+
+			if (c.getName().equals("k"))
+				k = Integer.parseInt(c.getValue());
+		}
 
 		k = k * k;
-		
+
 		PrintWriter out = res.getWriter();
 		out.println("The square is " + k);
 
+		// Adding contents of index.html so we can add 2 numbers after result is shown
+		res.setContentType("text/html");
 		RequestDispatcher rd = req.getRequestDispatcher("/index.html");
 		rd.include(req, res);
 	}
