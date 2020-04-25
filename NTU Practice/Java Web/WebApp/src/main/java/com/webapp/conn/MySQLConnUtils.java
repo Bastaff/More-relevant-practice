@@ -9,8 +9,8 @@ public class MySQLConnUtils {
 	public static Connection getMySQLConnection()
 			throws ClassNotFoundException, SQLException {
 		String hostName = "localhost";
-		String dbName = "database";
-		String userName = "user";
+		String dbName = "java_web_app";
+		String userName = "myuser";
 		String password = "xxxx";
 
 		return getMySQLConnection(hostName, dbName, userName, password);
@@ -19,7 +19,7 @@ public class MySQLConnUtils {
 	public static Connection getMySQLConnection(String hostName, String dbName,
 			String userName, String password)
 			throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.jdbc.Driver");
+		Class.forName("com.mysql.cj.jdbc.Driver");
 
 		String connectionURL = "jdbc:mysql://" + hostName + ":3306/" + dbName;
 
