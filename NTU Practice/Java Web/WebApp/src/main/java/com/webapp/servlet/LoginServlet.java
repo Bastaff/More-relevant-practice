@@ -42,7 +42,7 @@ public class LoginServlet extends HttpServlet {
 		String userName = request.getParameter("userName");
 		String password = request.getParameter("password");
 		String rememberMeStr = request.getParameter("rememberMe");
-		boolean remember = "Y".contentEquals(rememberMeStr);
+		boolean remember = "Y".equals(rememberMeStr);
 
 		UserAccount user = null;
 		boolean hasError = false;

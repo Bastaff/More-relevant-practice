@@ -38,7 +38,7 @@ public class DBUtils {
 			throws SQLException {
 
 		String sql = "SELECT a.user_name, a.password, a.gender FROM user_account AS a"
-				+ "WHERE a.user_name=?";
+				+ " WHERE a.user_name=?";
 
 		PreparedStatement pstm = conn.prepareStatement(sql);
 		pstm.setString(1, userName);
@@ -100,13 +100,14 @@ public class DBUtils {
 
 	public static void updateProduct(Connection conn, Product product)
 			throws SQLException {
-		String sql = "UPDATE product SET name=?, price=? WHERE code=?";
+		String sql = "UPDATE product SET Name=?, Price=? WHERE Code=?";
 
 		PreparedStatement pstm = conn.prepareStatement(sql);
 
 		pstm.setString(1, product.getName());
 		pstm.setFloat(2, product.getPrice());
 		pstm.setString(3, product.getCode());
+		
 		pstm.executeUpdate();
 	}
 
@@ -118,8 +119,8 @@ public class DBUtils {
 		PreparedStatement pstm = conn.prepareStatement(sql);
 
 		pstm.setString(1, product.getCode());
-		pstm.setString(1, product.getName());
-		pstm.setFloat(1, product.getPrice());
+		pstm.setString(2, product.getName());
+		pstm.setFloat(3, product.getPrice());
 
 		pstm.executeUpdate();
 	}
