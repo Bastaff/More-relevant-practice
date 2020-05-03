@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!-- JSExEvent.html -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>JavaScript Example: User-defined function and onclick Event Handler</title>
+  <script>
+
+
+    function openNewWindow() {
+      open("Loops.html");
+    }
+
+    var msgLoad = "Hello!";
+
+  </script>
+</head>
+<body onload="alert(msgLoad)">
+  <h2>Example on event and user-defined function</h2>
+  <input type="button" value="Click me to open a new window"
+  onclick="openNewWindow()">
+
+
+  <p onmouseover="this.style.color='red'"
+      onmouseout="this.style.color=''">Hover over this text</p>
+</body>
+</html>
